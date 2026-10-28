@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Good Morning, My Wifey Venu 💜</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-black: #06030b;
+      --bg-surface: #0e0717;
+      --bg-card: rgba(22, 12, 36, 0.65);
+      --purple-neon: #b366ff;
+      --purple-glow: rgba(179, 102, 255, 0.45);
+      --purple-subtle: #7938b2;
+      --purple-accent: #c084fc;
+      --purple-deep: #19092c;
+      --gold: #fcd34d;
+      --text-main: #f5f3ff;
+      --text-muted: #c4b5fd;
+      --border-glass: rgba(192, 132, 252, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      background: radial-gradient(circle at 50% 12%, #2d104d 0%, #130824 45%, #06030b 100%);
+      cursor: pointer;
+    }
+
+    /* Ambient Canvas for realistic 3D butterflies and cosmic starlight particles */
+    #fx-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Floating emotes layer */
+    .emote-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .floating-emote {
+      position: absolute;
+      font-size: 1.5rem;
+      filter: drop-shadow(0 0 12px rgba(179, 102, 255, 0.7));
+      animation: floatUp 15s linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(105vh) translateX(0) rotate(0deg) scale(0.7);
+        opacity: 0;
+      }
+      10% { opacity: 0.85; }
+      90% { opacity: 0.85; }
+      100% {
+        transform: translateY(-15vh) translateX(60px) rotate(360deg) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    /* Top HUD / Controls */
+    .top-bar {
+      position: fixed;
+      top: 1.2rem;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1.5rem;
+      pointer-events: none;
+    }
+
+    .glass-pill {
+      pointer-events: auto;
+      background: rgba(22, 12, 38, 0.78);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 0.55rem 1.2rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #e9d5ff;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    .glass-pill:hover {
+      transform: translateY(-2px);
+      border-color: var(--purple-neon);
+      box-shadow: 0 10px 28px var(--purple-glow);
+    }
+
+    .music-equalizer {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 14px;
+    }
+
+    .music-bar {
+      width: 3px;
+      background: var(--purple-neon);
+      border-radius: 2px;
+      height: 4px;
+      transition: height 0.2s ease;
+    }
+
+    .playing .music-bar:nth-child(1) { animation: soundEq 0.9s infinite alternate ease-in-out; }
+    .playing .music-bar:nth-child(2) { animation: soundEq 1.2s infinite alternate ease-in-out 0.2s; }
+    .playing .music-bar:nth-child(3) { animation: soundEq 0.7s infinite alternate ease-in-out 0.4s; }
+
+    @keyframes soundEq {
+      0% { height: 3px; }
+      100% { height: 14px; background: #fcd34d; }
+    }
+
+    /* Main Container */
+    main {
+      position: relative;
+      z-index: 10;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 6.5rem 1.5rem 4rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .badge-greeting {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      padding: 0.4rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #e9d5ff;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.4rem, 6.5vw, 5rem);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #ffffff 15%, #e9d5ff 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 45px rgba(168, 85, 247, 0.45);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+      font-style: italic;
+      color: #e0aaff;
+      text-shadow: 0 0 28px rgba(224, 170, 255, 0.6);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-desc {
+      max-width: 620px;
+      font-size: clamp(0.98rem, 1.8vw, 1.18rem);
+      color: #cbd5e1;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* 2026 Bento Showcase Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Common Card Styling */
+    .bento-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .bento-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--purple-neon);
+      box-shadow: 0 20px 50px rgba(168, 85, 247, 0.35);
+    }
+
+    /* Main Featured Photo Spotlight (Photo 1) */
+    .card-featured-photo {
+      grid-column: span 5;
+      position: relative;
+      min-height: 460px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
+
+    .card-featured-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.8s ease;
+      z-index: 1;
+    }
+
+    .card-featured-photo:hover img {
+      transform: scale(1.06);
+    }
+
+    .card-featured-photo .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 3, 11, 0.1) 30%, rgba(14, 7, 23, 0.95) 90%);
+      z-index: 2;
+    }
+
+    .card-featured-photo .photo-info {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Morning Love Letter Card */
+    .card-letter {
+      grid-column: span 7;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(145deg, rgba(32, 17, 54, 0.7), rgba(14, 7, 23, 0.85));
+    }
+
+    .card-letter-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+      line-height: 1.8;
+      color: #f3e8ff;
+      font-style: italic;
+      margin: 1.2rem 0 1.8rem;
+    }
+
+    /* Tri-Gallery Section (Photos 2, 3, 4) */
+    .gallery-item {
+      grid-column: span 4;
+      aspect-ratio: 4/5;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+
+    .gallery-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+      z-index: 1;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(10, 4, 18, 0.92) 100%);
+      z-index: 2;
+    }
+
+    .gallery-item .info {
+      position: relative;
+      z-index: 3;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(168, 85, 247, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .card-caption {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* Reasons & Compliments generator bento */
+    .card-interactive {
+      grid-column: span 8;
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .compliment-box {
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: #f1f5f9;
+      padding: 1.5rem;
+      background: rgba(14, 7, 23, 0.7);
+      border-radius: 20px;
+      border: 1px dashed rgba(168, 85, 247, 0.45);
+      margin: 1.2rem 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Virtual Morning Coffee / Warmth widget */
+    .card-coffee {
+      grid-column: span 4;
+      padding: 2.2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .coffee-icon-wrap {
+      width: 76px;
+      height: 76px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid var(--purple-neon);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+      position: relative;
+    }
+
+    .coffee-steam {
+      position: absolute;
+      top: -12px;
+      font-size: 1rem;
+      animation: steamAnim 2s infinite ease-out;
+      opacity: 0;
+    }
+
+    @keyframes steamAnim {
+      0% { transform: translateY(0) scale(0.8); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-16px) scale(1.2); opacity: 0; }
+    }
+
+    /* Responsive Bento Breakpoints */
+    @media (max-width: 1024px) {
+      .card-featured-photo { grid-column: span 12; min-height: 480px; }
+      .card-letter { grid-column: span 12; }
+      .gallery-item { grid-column: span 4; }
+      .card-interactive { grid-column: span 7; }
+      .card-coffee { grid-column: span 5; }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-item { grid-column: span 12; aspect-ratio: 3/4; }
+      .card-interactive { grid-column: span 12; }
+      .card-coffee { grid-column: span 12; }
+    }
+
+    /* Buttons */
+    .btn-glow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: linear-gradient(135deg, #a855f7, #6b21a8);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.9rem 1.8rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(168, 85, 247, 0.45);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      width: fit-content;
+    }
+
+    .btn-glow:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 38px rgba(179, 102, 255, 0.65);
+      background: linear-gradient(135deg, #c084fc, #7e22ce);
+    }
+
+    /* Interactive Full Letter Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 2, 8, 0.88);
+      backdrop-filter: blur(18px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: linear-gradient(145deg, #1b0e30, #0a0414);
+      border: 1px solid var(--purple-neon);
+      border-radius: 32px;
+      max-width: 640px;
+      width: 100%;
+      padding: 3rem 2.5rem;
+      position: relative;
+      box-shadow: 0 25px 80px rgba(168, 85, 247, 0.5);
+      transform: translateY(30px) scale(0.96);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-backdrop.active .modal-content {
+      transform: translateY(0) scale(1);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .close-btn:hover {
+      background: var(--purple-neon);
+      transform: rotate(90deg);
+    }
+
+    .letter-body {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: #f3e8ff;
+      white-space: pre-line;
+      margin: 1.6rem 0;
+    }
+
+    /* Tap sparkles */
+    .click-sparkle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      font-size: 1.35rem;
+      transform: translate(-50%, -50%);
+      animation: sparkleRise 0.75s ease-out forwards;
+    }
+
+    @keyframes sparkleRise {
+      0% {
+        transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -85px) scale(1.3) rotate(30deg);
+        opacity: 0;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-size: 0.88rem;
+      color: #a78bfa;
+      border-top: 1px solid rgba(168, 85, 247, 0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    #image-uploader {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Dynamic Canvas: Fluttering Butterflies & Starlight Particles -->
+  <canvas id="fx-canvas"></canvas>
+
+  <!-- Ambient Floating Emotes Layer -->
+  <div class="emote-layer" id="emote-layer"></div>
+
+  <!-- Top Bar: Lo-Fi Music Controller & Optional Local Image Selector -->
+  <header class="top-bar">
+    <div class="glass-pill" id="music-toggle" title="Play soothing morning music">
+      <div class="music-equalizer">
+        <div class="music-bar"></div>
+        <div class="music-bar"></div>
+        <div class="music-bar"></div>
+      </div>
+      <span id="music-status">Play Morning Melody 🎵</span>
+    </div>
+
+    <label for="image-uploader" class="glass-pill" title="Upload or change photos anytime">
+      <span>✨ Photo Selector</span>
+    </label>
+    <input type="file" id="image-uploader" multiple accept="image/*">
+  </header>
+
+  <!-- Main Experience -->
+  <main>
+    <!-- Hero Greeting Header -->
+    <section class="hero">
+      <div class="badge-greeting">
+        <span>✨</span> <span id="current-date">A BEAUTIFUL NEW MORNING</span> <span>✨</span>
+      </div>
+      <h1 class="hero-title">GOOD MORNING</h1>
+      <div class="hero-subtitle">My Wifey, Venu</div>
+      <p class="hero-desc">
+        May your day be filled with warm purple dawns, endless sweet moments, and the gentle reminder of how unconditionally you are loved.
+      </p>
+    </section>
+
+    <!-- Bento Grid Showcase -->
+    <section class="bento-grid">
+      <!-- 1. Hero Showcase Photo: Golden Hour Glasses Portrait (venu1.jpg) -->
+      <div class="bento-card card-featured-photo" onclick="triggerPhotoReaction('You are my warm morning sunshine, Venu!')">
+        <img id="img-0" src="venu1.jpg" alt="Venu's Morning Radiance" onerror="handleImageFallback(this, 0)">
+        <div class="photo-overlay"></div>
+        <div class="photo-info">
+          <span class="card-tag">Sunlit Grace</span>
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 0.4rem;">The Purest Smile ☀️</h2>
+          <p style="color: #cbd5e1; font-size: 0.95rem;">Every morning with your thought is brighter than sunrise.</p>
+        </div>
+      </div>
+
+      <!-- 2. Morning Love Letter Note -->
+      <div class="bento-card card-letter">
+        <div>
+          <span class="card-tag">To My Queen</span>
+          <h2 style="font-family: 'Cinzel', serif; font-size: 1.7rem; color: #f5f3ff;">A Letter For Your Morning</h2>
+          <p class="card-letter-quote">
+            "Before the world begins its rush today, I wanted to whisper a gentle reminder: you are my peace, my universe, and my sweetest blessing..."
+          </p>
+        </div>
+        <button class="btn-glow" id="open-letter-btn">
+          <span>Open Full Morning Letter 💌</span>
+        </button>
+      </div>
+
+      <!-- 3. Photo 2: Elegance in Black (venu2.jpg) -->
+      <div class="bento-card gallery-item" onclick="triggerPhotoReaction('Breathtaking elegance in every glance.')">
+        <img id="img-1" src="venu2.jpg" alt="Venu Elegance" onerror="handleImageFallback(this, 1)">
+        <div class="overlay"></div>
+        <div class="info">
+          <span class="card-tag">Poise & Charm</span>
+          <div class="card-caption">Elegance Personified 🖤</div>
+        </div>
+      </div>
+
+      <!-- 4. Photo 3: Dreamy Purple Glow (venu3.jpg) -->
+      <div class="bento-card gallery-item" onclick="triggerPhotoReaction('You belong under purple neon starlight!')">
+        <img id="img-2" src="venu3.jpg" alt="Venu under Purple Light" onerror="handleImageFallback(this, 2)">
+        <div class="overlay"></div>
+        <div class="info">
+          <span class="card-tag">Violet Dream</span>
+          <div class="card-caption">My Purple Moon 🌙</div>
+        </div>
+      </div>
+
+      <!-- 5. Photo 4: Spiderman Playful Selfie (venu4.jpg) -->
+      <div class="bento-card gallery-item" onclick="triggerPhotoReaction('My favorite goofy, adorable superhero wifey!')">
+        <img id="img-3" src="venu4.jpg" alt="Venu Mirror Selfie" onerror="handleImageFallback(this, 3)">
+        <div class="overlay"></div>
+        <div class="info">
+          <span class="card-tag">Sweet & Playful</span>
+          <div class="card-caption">My Hero 🕸️💜</div>
+        </div>
+      </div>
+
+      <!-- 6. Interactive Morning Thought Generator -->
+      <div class="bento-card card-interactive">
+        <div>
+          <span class="card-tag">Today's Heartbeat</span>
+          <h3 style="font-family: 'Cinzel', serif; font-size: 1.35rem; margin-top: 0.3rem;">Reasons You Are My Favorite Morning Thought</h3>
+          <div class="compliment-box" id="compliment-text">
+            "Your laughter is my favorite song in the entire universe."
+          </div>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <button class="btn-glow" id="new-compliment-btn">
+            <span>Tap For Another Reason 💜</span>
+          </button>
+          <span style="font-size: 0.85rem; color: #a78bfa;">Butterflies caught: <strong id="butterfly-count" style="color: #fcd34d;">0</strong> (Click near butterflies!)</span>
+        </div>
+      </div>
+
+      <!-- 7. Virtual Morning Coffee / Warm Hug Widget -->
+      <div class="bento-card card-coffee" onclick="drinkCoffee()">
+        <div class="coffee-icon-wrap">
+          <span class="coffee-steam">♨️</span>
+          <span>☕</span>
+        </div>
+        <h4 style="font-family: 'Cinzel', serif; font-size: 1.15rem; margin-bottom: 0.3rem;">Morning Warmth</h4>
+        <p id="coffee-note" style="font-size: 0.88rem; color: var(--text-muted);">Tap to drink a warm cup of morning love</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Morning Envelope Modal -->
+  <div class="modal-backdrop" id="letter-modal">
+    <div class="modal-content">
+      <div class="close-btn" id="close-letter-btn">&times;</div>
+      <span class="card-tag">FROM YOUR HUSBAND WITH ALL HIS LOVE</span>
+      <h2 style="font-family: 'Cinzel', serif; font-size: 1.85rem; color: #f5f3ff; margin-top: 0.5rem;">Good Morning, My Dearest Venu</h2>
+      <div class="letter-body">
+        Good morning, my beautiful wifey 💜
+
+        I hope you slept peacefully and woke up feeling refreshed. As you start this brand new day, I want you to remember just how deeply appreciated, loved, and treasured you are.
+
+        Whether you're smiling behind your glasses, looking gorgeous in black, basking under purple lights, or being your silly sweet self, you make my life infinitely more vibrant and magical.
+
+        Take things slow today. Drink your morning coffee or chai, smile often, and remember that no matter how far apart or busy we are, my heart is right there beside you.
+
+        Go conquer this day, my queen. I'll always be your biggest fan.
+
+        With all my love and kisses,
+        Your Loving Husband 💜
+      </div>
+      <button class="btn-glow" id="close-letter-footer-btn" style="width: 100%; justify-content: center;">
+        Have a Magical Day, Venu 🌸
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    Crafted with purple starlight, infinite love & butterflies for Venu ✨
+  </footer>
+
+  <!-- Script: Web Audio Synthesizer, 3D Canvas Butterflies, & Interactions -->
+  <script>
+    /* =========================================================
+       1. WEB AUDIO API SYNTHESIZER
+       - Crystal/Chime sound on every click
+       - Ambient Lofi chord progression generated live
+       ========================================================= */
+    class AudioSynthesizer {
+      constructor() {
+        this.ctx = null;
+        this.isPlaying = false;
+        this.musicTimer = null;
+        this.step = 0;
+
+        // Dreamy lofi romantic chord progression (Fmaj7 -> G -> Em7 -> Am7)
+        this.chords = [
+          [174.61, 220.00, 261.63, 329.63], // Fmaj7
+          [196.00, 246.94, 293.66, 392.00], // G6
+          [164.81, 196.00, 246.94, 329.63], // Em7
+          [220.00, 261.63, 329.63, 440.00]  // Am7
+        ];
+      }
+
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          this.ctx = new AudioContext();
+        }
+        if (this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      }
+
+      // Satisfying Harmonic Click Chime
+      playClickChime() {
+        this.init();
+        const now = this.ctx.currentTime;
+        const scale = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98]; // C5, E5, G5, C6, E6, G6
+        const freq = scale[Math.floor(Math.random() * scale.length)];
+
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now);
+        osc.frequency.exponentialRampToValueAtTime(freq * 1.015, now + 0.05);
+
+        gain.gain.setValueAtTime(0.16, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.58);
+      }
+
+      // Warm Ambient Pad Generator
+      playLofiChord() {
+        if (!this.isPlaying || !this.ctx) return;
+        const now = this.ctx.currentTime;
+        const chord = this.chords[this.step % this.chords.length];
+        this.step++;
+
+        chord.forEach((note, i) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          const filter = this.ctx.createBiquadFilter();
+
+          osc.type = i % 2 === 0 ? 'sine' : 'triangle';
+          osc.frequency.setValueAtTime(note, now);
+
+          filter.type = 'lowpass';
+          filter.frequency.setValueAtTime(580, now);
+
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.linearRampToValueAtTime(0.024, now + 1.2);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 4.6);
+
+          osc.connect(filter);
+          filter.connect(gain);
+          gain.connect(this.ctx.destination);
+
+          osc.start(now + i * 0.04);
+          osc.stop(now + 4.8);
+        });
+
+        // Pluck Melody Note (Music box / Kalimba timbre)
+        setTimeout(() => {
+          if (!this.isPlaying) return;
+          const pluck = this.ctx.createOscillator();
+          const pluckGain = this.ctx.createGain();
+          const t = this.ctx.currentTime;
+          pluck.type = 'sine';
+          pluck.frequency.setValueAtTime(chord[2] * 2, t);
+          pluckGain.gain.setValueAtTime(0.035, t);
+          pluckGain.gain.exponentialRampToValueAtTime(0.0001, t + 1.4);
+
+          pluck.connect(pluckGain);
+          pluckGain.connect(this.ctx.destination);
+          pluck.start(t);
+          pluck.stop(t + 1.5);
+        }, 1200);
+
+        this.musicTimer = setTimeout(() => this.playLofiChord(), 4200);
+      }
+
+      toggleMusic() {
+        this.init();
+        this.isPlaying = !this.isPlaying;
+        const pill = document.getElementById('music-toggle');
+        const text = document.getElementById('music-status');
+
+        if (this.isPlaying) {
+          pill.classList.add('playing');
+          text.textContent = 'Morning Melody Playing 💜';
+          this.playLofiChord();
+        } else {
+          pill.classList.remove('playing');
+          text.textContent = 'Play Morning Melody 🎵';
+          clearTimeout(this.musicTimer);
+        }
+      }
+    }
+
+    const sound = new AudioSynthesizer();
+
+    /* =========================================================
+       2. CANVAS ANIMATION: BUTTERFLIES WITH 3D FLAPPING WINGS
+       ========================================================= */
+    const canvas = document.getElementById('fx-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let butterflyCaughtCount = 0;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Cosmic starlight particles
+    const stars = Array.from({ length: 60 }, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      radius: Math.random() * 1.5 + 0.5,
+      alpha: Math.random() * 0.7 + 0.3,
+      speed: Math.random() * 0.02 + 0.01
+    }));
+
+    class Butterfly {
+      constructor(x, y) {
+        this.x = x ?? Math.random() * width;
+        this.y = y ?? Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 1.7;
+        this.vy = (Math.random() - 0.5) * 1.2 - 0.5;
+        this.size = Math.random() * 12 + 16;
+        this.flapSpeed = Math.random() * 0.16 + 0.12;
+        this.flapAngle = Math.random() * Math.PI;
+        this.color = Math.random() > 0.35 ? '#c084fc' : '#e879f9';
+        this.angle = Math.atan2(this.vy, this.vx);
+      }
+
+      update() {
+        this.flapAngle += this.flapSpeed;
+        this.x += this.vx + Math.sin(this.flapAngle * 0.6) * 0.8;
+        this.y += this.vy + Math.cos(this.flapAngle * 0.6) * 0.5;
+
+        // Screen looping
+        if (this.x < -60) this.x = width + 50;
+        if (this.x > width + 60) this.x = -50;
+        if (this.y < -60) this.y = height + 50;
+        if (this.y > height + 60) this.y = -50;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle + Math.PI / 2);
+
+        const wingFlapScale = Math.sin(this.flapAngle);
+
+        ctx.shadowBlur = 14;
+        ctx.shadowColor = 'rgba(192, 132, 252, 0.8)';
+
+        // Left Wing
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.ellipse(-this.size * 0.55 * Math.abs(wingFlapScale), 0, this.size * 0.65 * Math.abs(wingFlapScale), this.size, 0.3, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Right Wing
+        ctx.beginPath();
+        ctx.ellipse(this.size * 0.55 * Math.abs(wingFlapScale), 0, this.size * 0.65 * Math.abs(wingFlapScale), this.size, -0.3, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Slender Body
+        ctx.fillStyle = '#240f3e';
+        ctx.shadowBlur = 0;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 2.5, this.size * 0.75, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
+      }
+    }
+
+    const butterflies = Array.from({ length: 9 }, () => new Butterfly());
+
+    function renderScene() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Render starlight
+      stars.forEach(s => {
+        s.alpha += Math.sin(Date.now() * s.speed) * 0.01;
+        ctx.fillStyle = `rgba(224, 231, 255, ${Math.abs(s.alpha)})`;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      // Render butterflies
+      butterflies.forEach(b => {
+        b.update();
+        b.draw();
+      });
+
+      requestAnimationFrame(renderScene);
+    }
+    renderScene();
+
+    /* =========================================================
+       3. FLOATING EMOTES GENERATOR
+       ========================================================= */
+    const emoteList = ['💜', '✨', '🌸', '🦋', '☕', '💫', '🌹', '🤍'];
+    const emoteLayer = document.getElementById('emote-layer');
+
+    function spawnFloatingEmote() {
+      const el = document.createElement('div');
+      el.className = 'floating-emote';
+      el.textContent = emoteList[Math.floor(Math.random() * emoteList.length)];
+      el.style.left = Math.random() * 95 + 'vw';
+      el.style.animationDuration = Math.random() * 5 + 11 + 's';
+      emoteLayer.appendChild(el);
+
+      setTimeout(() => el.remove(), 16000);
+    }
+    setInterval(spawnFloatingEmote, 1600);
+    for (let i = 0; i < 5; i++) spawnFloatingEmote();
+
+    /* =========================================================
+       4. GLOBAL CLICK SPARKLES & SOUND
+       ========================================================= */
+    const sparkleIcons = ['💜', '✨', '🦋', '💖', '⭐', '🌸'];
+
+    window.addEventListener('pointerdown', (e) => {
+      // Play crisp harmonic chime on click
+      sound.playClickChime();
+
+      // Visual tap particle
+      const sparkle = document.createElement('div');
+      sparkle.className = 'click-sparkle';
+      sparkle.textContent = sparkleIcons[Math.floor(Math.random() * sparkleIcons.length)];
+      sparkle.style.left = e.clientX + 'px';
+      sparkle.style.top = e.clientY + 'px';
+      document.body.appendChild(sparkle);
+
+      // Interactive Butterfly interaction
+      butterflies.forEach(b => {
+        const dist = Math.hypot(b.x - e.clientX, b.y - e.clientY);
+        if (dist < 55) {
+          b.vx = (Math.random() - 0.5) * 6;
+          b.vy = -3.5;
+          butterflyCaughtCount++;
+          document.getElementById('butterfly-count').textContent = butterflyCaughtCount;
+        }
+      });
+
+      setTimeout(() => sparkle.remove(), 750);
+    });
+
+    /* =========================================================
+       5. COMPLIMENT & SWEET THOUGHT GENERATOR
+       ========================================================= */
+    const compliments = [
+      "Your laughter is my favorite song in the entire universe.",
+      "The world is blessed to have your grace and warmth today, Venu.",
+      "Every single morning is an opportunity to love you even more.",
+      "You make simplicity look like absolute perfection.",
+      "You are the smartest, most beautiful, and kindest person I know.",
+      "No morning coffee could ever be as sweet and energizing as you.",
+      "You are my today, my tomorrow, and every morning after."
+    ];
+
+    let compIndex = 0;
+    const compBox = document.getElementById('compliment-text');
+    const compBtn = document.getElementById('new-compliment-btn');
+
+    compBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sound.playClickChime();
+      compBox.style.opacity = '0';
+      compBox.style.transform = 'translateY(6px)';
+
+      setTimeout(() => {
+        compIndex = (compIndex + 1) % compliments.length;
+        compBox.textContent = `"${compliments[compIndex]}"`;
+        compBox.style.opacity = '1';
+        compBox.style.transform = 'translateY(0)';
+      }, 220);
+    });
+
+    /* =========================================================
+       6. LETTER MODAL LOGIC
+       ========================================================= */
+    const modal = document.getElementById('letter-modal');
+    const openBtn = document.getElementById('open-letter-btn');
+    const closeBtn = document.getElementById('close-letter-btn');
+    const closeFooterBtn = document.getElementById('close-letter-footer-btn');
+
+    function openModal() { modal.classList.add('active'); }
+    function closeModal() { modal.classList.remove('active'); }
+
+    openBtn.addEventListener('click', (e) => { e.stopPropagation(); openModal(); });
+    closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeModal(); });
+    closeFooterBtn.addEventListener('click', (e) => { e.stopPropagation(); closeModal(); });
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    /* Music Toggle */
+    document.getElementById('music-toggle').addEventListener('click', (e) => {
+      e.stopPropagation();
+      sound.toggleMusic();
+    });
+
+    /* Coffee Widget Reaction */
+    function drinkCoffee() {
+      const note = document.getElementById('coffee-note');
+      note.textContent = "A warm cup of kisses & love sent your way! ☕💜";
+      note.style.color = "#fcd34d";
+      setTimeout(() => {
+        note.textContent = "Tap to drink another warm cup of morning love";
+        note.style.color = "var(--text-muted)";
+      }, 3500);
+    }
+
+    function triggerPhotoReaction(msg) {
+      const comp = document.getElementById('compliment-text');
+      comp.textContent = `"${msg}"`;
+      comp.style.borderColor = 'var(--purple-neon)';
+    }
+
+    /* Format Current Date dynamically */
+    const options = { weekday: 'long', month: 'long', day: 'numeric' };
+    document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', options).toUpperCase();
+
+    /* =========================================================
+       7. IMAGE UPLOADER & BACKUP FALLBACKS
+       ========================================================= */
+    document.getElementById('image-uploader').addEventListener('change', (e) => {
+      const files = Array.from(e.target.files);
+      files.forEach((file, idx) => {
+        if (idx < 4) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            const imgEl = document.getElementById(`img-${idx}`);
+            if (imgEl) imgEl.src = event.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    });
+
+    function handleImageFallback(img, index) {
+      const labels = [
+        "Venu: venu1.jpg (Glasses Photo)",
+        "Venu: venu2.jpg (Black Kurti)",
+        "Venu: venu3.jpg (Purple Lighting)",
+        "Venu: venu4.jpg (Spiderman Selfie)"
+      ];
+      img.src = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='800' fill='%23160a26'><rect width='100%25' height='100%25'/><text x='50%25' y='50%25' fill='%23c084fc' font-family='sans-serif' font-size='22' text-anchor='middle'>${labels[index % labels.length]}</text></svg>`;
+    }
+  </script>
+</body>
+</html>
